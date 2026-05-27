@@ -1,23 +1,27 @@
 package br.com.fiap.challenge.ouro.model;
 
+import br.com.fiap.challenge.ouro.service.GeracaoLongId;
+
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 public class Reuniao {
-    private String id;
+    private Long id;
     private LocalDate data;
     private String transcricao;
     private List<Usuario> participantes;
+    private static final GeracaoLongId geracaoId = new GeracaoLongId();
+
+    public Reuniao(){}
 
     public Reuniao(LocalDate data, String transcricao, List<Usuario> participantes) {
-        this.id = UUID.randomUUID().toString();
+        this.id = geracaoId.proxId();
         this.data = data;
         this.transcricao = transcricao;
         this.participantes = participantes;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

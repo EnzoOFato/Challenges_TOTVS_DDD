@@ -5,6 +5,7 @@ import br.com.fiap.challenge.ouro.service.GeracaoLongId;
 public class Cliente extends Usuario{
     private Long id;
     private String CNPJ;
+    private static final GeracaoLongId geradorId = new GeracaoLongId();
 
     public Cliente() {
 
@@ -12,7 +13,13 @@ public class Cliente extends Usuario{
 
     public Cliente(String nome, String senha, Integer idade, String CNPJ) {
         super(nome, senha, idade);
-        this.id = GeracaoLongId.proxId();
+        this.id = geradorId.proxId();
+        this.CNPJ = CNPJ;
+    }
+
+    public Cliente(String nome, String senha, Integer idade, Long id, String CNPJ) {
+        super(nome, senha, idade);
+        this.id = id;
         this.CNPJ = CNPJ;
     }
 

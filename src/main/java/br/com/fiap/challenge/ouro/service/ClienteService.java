@@ -3,6 +3,7 @@ package br.com.fiap.challenge.ouro.service;
 import br.com.fiap.challenge.ouro.armazenamento.ListaCliente;
 import br.com.fiap.challenge.ouro.dto.ClienteDTO;
 import br.com.fiap.challenge.ouro.exception.CNPJInvalidoException;
+import br.com.fiap.challenge.ouro.exception.UsuarioNuloException;
 import br.com.fiap.challenge.ouro.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,10 +24,11 @@ public class ClienteService {
 
     public ResponseEntity<String> adicionaCliente(ClienteDTO clienteDTO) {
         try {
+            verificaNull(clienteDTO);
             verificaCNPJ(clienteDTO.CNPJ());
             listaCliente.adicionarCliente(converteDTO(clienteDTO));
             return ResponseEntity.ok("Cliente criado com sucesso");
-        } catch (CNPJInvalidoException e) {
+        } catch (CNPJInvalidoException | UsuarioNuloException e) {
             System.out.println("ERRO: " + e.getMessage());
             return ResponseEntity.badRequest().body("CNPJ fora do padrão: XX.XXX.XXX/YYYY-ZZ");
         }
@@ -48,5 +50,13 @@ public class ClienteService {
                 cliente -> new ClienteDTO(cliente.getId(), cliente.getNome(),
                         Senhas.esconde(cliente.getSenha()), cliente.getIdade(), cliente.getCNPJ())
         ).collect(Collectors.toList());
+    }
+
+    public void verificaNull(ClienteDTO clienteDTO) {
+        boolean condicao = clienteDTO.nome() != null && clienteDTO.senha() != null &&
+                clienteDTO.idade() != null && clienteDTO.CNPJ() != null;
+        if (!condicao) {
+            throw new UsuarioNuloException("Dados incompletos do funcionário");
+        }
     }
 }

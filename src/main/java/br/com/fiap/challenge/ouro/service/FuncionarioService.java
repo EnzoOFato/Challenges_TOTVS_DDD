@@ -32,14 +32,14 @@ public class FuncionarioService {
     }
 
     private Funcionario converteDTO(FuncionarioDTO funcionarioDTO) {
-        return new Funcionario(funcionarioDTO.nome(), Senhas.esconde(funcionarioDTO.senha()), funcionarioDTO.idade(),
+        return new Funcionario(funcionarioDTO.nome(), funcionarioDTO.senha(), funcionarioDTO.idade(),
                 funcionarioDTO.cargo(), funcionarioDTO.codRegistro());
     }
 
     public List<FuncionarioDTO> todosFuncionarios() {
         return listaFuncionario.getFuncionarios().stream().map(
-                funcionario -> new FuncionarioDTO(funcionario.getNome(), funcionario.getSenha(), funcionario.getIdade(),
-                        funcionario.getCargo(), funcionario.getCodRegistro())
+                funcionario -> new FuncionarioDTO(funcionario.getNome(), Senhas.esconde(funcionario.getSenha()),
+                        funcionario.getIdade(), funcionario.getCargo(), funcionario.getCodRegistro())
         ).collect(Collectors.toList());
     }
 

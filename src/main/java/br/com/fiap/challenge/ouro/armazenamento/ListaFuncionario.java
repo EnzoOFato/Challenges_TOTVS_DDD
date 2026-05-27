@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ListaFuncionario {
@@ -18,4 +19,7 @@ public class ListaFuncionario {
         return this.funcionarios;
     }
 
+    public Optional<Funcionario> getFuncionarioCod(String cod) {
+        return funcionarios.stream().filter(f -> f.getCodRegistro().equals(cod)).findFirst();
+    }
 }
