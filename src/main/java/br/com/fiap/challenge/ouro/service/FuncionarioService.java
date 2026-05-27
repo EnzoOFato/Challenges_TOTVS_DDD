@@ -32,7 +32,7 @@ public class FuncionarioService {
     }
 
     private Funcionario converteDTO(FuncionarioDTO funcionarioDTO) {
-        return new Funcionario(funcionarioDTO.nome(), funcionarioDTO.senha(), funcionarioDTO.idade(),
+        return new Funcionario(funcionarioDTO.nome(), Senhas.esconde(funcionarioDTO.senha()), funcionarioDTO.idade(),
                 funcionarioDTO.cargo(), funcionarioDTO.codRegistro());
     }
 
