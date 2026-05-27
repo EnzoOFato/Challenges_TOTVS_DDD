@@ -13,4 +13,20 @@ public class Funcionario extends Usuario{
         this.cargo = cargo;
         this.codRegistro = codRegistro;
     }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getCodRegistro() {
+        return codRegistro;
+    }
+
+    public void setCodRegistro(String codRegistro) {
+        this.codRegistro = codRegistro;
+    }
 }
