@@ -7,7 +7,7 @@ import com.google.genai.types.GenerateContentResponse;
 
 @Service
 public class ConsultaIA {
-    private Client client = Client.builder().apiKey("AIzaSyC_yDPDUaGgp4I5EN5ZUGY28xa_bn8XG4g").build();
+    private Client client = Client.builder().apiKey("SUA_API_KEY").build();
 
     private final String prompt = """
             Está é a transcrição de uma reunião, tente extrair dela o máximo de informações possíveis.
