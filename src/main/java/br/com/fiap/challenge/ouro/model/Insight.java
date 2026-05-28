@@ -1,10 +1,10 @@
 package br.com.fiap.challenge.ouro.model;
 
-public class Insights {
+public class Insight {
     private Reuniao reuniao;
     private String relatorioSimples;
 
-    public Insights(Reuniao reuniao, String relatorioSimples) {
+    public Insight(Reuniao reuniao, String relatorioSimples) {
         this.reuniao = reuniao;
         this.relatorioSimples = relatorioSimples;
     }

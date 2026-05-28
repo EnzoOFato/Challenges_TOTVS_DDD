@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ListaReuniao {
@@ -16,5 +17,9 @@ public class ListaReuniao {
 
     public List<Reuniao> getListaReuniao() {
         return this.listaReuniao;
+    }
+
+    public Optional<Reuniao> getReuniaoPorId(Long id) {
+       return listaReuniao.stream().filter(r -> r.getId().equals(id)).findFirst();
     }
 }

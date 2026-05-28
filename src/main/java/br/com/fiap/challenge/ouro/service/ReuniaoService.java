@@ -82,7 +82,7 @@ public class ReuniaoService {
 
     public List<ReuniaoDTOSaida> todasReunioes() {
         return listaReuniao.getListaReuniao().stream().map(
-                r -> new ReuniaoDTOSaida(r.getId(), r.getData().toString(),
+                r -> new ReuniaoDTOSaida(r.getId(), formatter.format(r.getData()),
                         r.getTranscricao(),
                         Senhas.escondeVarias(r.getParticipantes()))
         ).collect(Collectors.toList());
