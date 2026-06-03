@@ -141,19 +141,6 @@ A solução conta com um diagrama UML desenvolvido no [Draw.io](https://draw.io)
 - [Postman](https://www.postman.com/) instalado
 - Chave de API do Gemini (Google AI Studio)
 
-### Configuração
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/EnzoOFato/Challenges_TOTVS_DDD.git
-   ```
-
-2. Insira sua chave da API do Gemini no campo indicado no código (não está inclusa por razões de segurança).
-
-3. Execute a aplicação pela sua IDE (certifique-se de estar usando a JDK 25).
-
-4. Acesse a coleção do Postman pelo link abaixo e realize as requisições.
-
 ### Ordem recomendada de requisições
 
 Para melhor funcionamento, siga a ordem abaixo, sempre respeitando `POST` antes de `GET`:
@@ -186,7 +173,3 @@ Após o último `POST`, um relatório `.md` gerado pela IA estará disponível c
 ## 📝 Considerações Finais
 
 O projeto encontra-se em estágio inicial de desenvolvimento (Sprints 1 e 2 unificadas). O foco atual é a geração de relatórios simplificados a partir de transcrições de reuniões de vendas, reduzindo a perda de informações estratégicas no contexto da TOTVS.
-
----
-
-> Desenvolvido com ❤️ pelo **Time Challenge 5** — FIAP 2026
